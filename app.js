@@ -3,6 +3,7 @@ const path = require('path');
 
 const checklistRouter = require('./src/routes/checklist');
 const rootRouter = require('./src/routes/index');
+
 require('./config/database');
 
 
