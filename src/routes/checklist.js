@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const Checklist = require('../models/checklist')
+const Checklist = require('../models/checklist');
 
 router.get('/', async (req, res) => {
    try{
@@ -44,9 +44,8 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try{
-        let checklist = await Checklist.findById(req.params.id);
-        console.log(checklist) ;
-            res.status(200).render('checklists/show', { checklist: checklist });
+        let checklist = await Checklist.findById(req.params.id).populate('tasks');
+        res.status(200).render('checklists/show', { checklist: checklist });
     } catch(error){
         res.status(500).render('pages/error', {error: 'Erro ao exibir as listas de tarefas'});
     }

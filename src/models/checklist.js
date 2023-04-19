@@ -8,4 +8,5 @@ const checkListSchema = mongoose.Schema({
     }]
 })
 
-module.exports = mongoose.model('Checklist', checkListSchema);
+module.exports = mongoose.model('checklist', checkListSchema);
+//observar erro na aula 24 e 25 se der erro subistituir para Checklist
